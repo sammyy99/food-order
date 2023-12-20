@@ -1,0 +1,79 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.logo > img {
+  height: 100px;
+}
+
+.navitems > ul {
+  display: flex;
+  list-style: none;
+  padding-right: 30px;
+  padding-top: 6%;
+}
+
+.navitems > ul > li {
+  padding-right: 30px;
+  font-size: 18px;
+}
+
+.filterbtn {
+  margin-top: 20px;
+  margin-bottom: 22px;
+}
+
+/* CSS OF CARD*/
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.res-card {
+  width: 200px;
+  border: 1px solid grey;
+  padding: 10px;
+  margin: 20px;
+  background-color: rgb(243, 227, 227);
+}
+
+.card-logo {
+  width: 100%;
+}
+
+.res-card:hover {
+  border: 1px solid black;
+  cursor: pointer;
+}
+/* END OF CSS OF CARD*/
+
+/*Shimmer Card */
+.restaurant-card {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(to right, transparent 0%, #f4f4f4 50%, transparent 100%);
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .restaurant-details {
+    padding: 16px;
+  }
+
+  .restaurant-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .restaurant-description {
+    font-size: 14px;
+    color: #666;
+  }
+/*End of shimmer card*/
