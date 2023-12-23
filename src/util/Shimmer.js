@@ -5,6 +5,26 @@ const Shimmer = ()=>{
       <div className="restaurant-name">Shimmer Restaurant</div>
       <div className="restaurant-description">Delicious food served with love.</div>
     </div>
+
+    <div className="restaurant-details">
+      <div className="restaurant-name">Shimmer Restaurant</div>
+      <div className="restaurant-description">Delicious food served with love.</div>
+    </div>
+
+    <div className="restaurant-details">
+      <div className="restaurant-name">Shimmer Restaurant</div>
+      <div className="restaurant-description">Delicious food served with love.</div>
+    </div>
+
+    <div className="restaurant-details">
+      <div className="restaurant-name">Shimmer Restaurant</div>
+      <div className="restaurant-description">Delicious food served with love.</div>
+    </div>
+
+    <div className="restaurant-details">
+      <div className="restaurant-name">Shimmer Restaurant</div>
+      <div className="restaurant-description">Delicious food served with love.</div>
+    </div>
   </div>)
     
 }

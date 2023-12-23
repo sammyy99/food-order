@@ -77,3 +77,16 @@
     color: #666;
   }
 /*End of shimmer card*/
+
+
+/* Login button */
+
+.login{
+cursor: pointer;  
+}
+
+.search-box{
+ margin-left: 15px;
+ margin-right: 7px;
+}
+
