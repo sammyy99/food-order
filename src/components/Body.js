@@ -3,6 +3,7 @@ import restList from "../mockdata/restList";
 import Card from "./Card";
 import { useState, useEffect } from "react";
 import Shimmer from "../util/Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [restCardList, setRestCardList] = useState([]);
@@ -18,7 +19,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.943869&lng=77.725155&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6555386&lng=77.36761419999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
 
@@ -35,7 +36,7 @@ const Body = () => {
     const filteredList = restCardList.filter(function (bestcard) {
       return bestcard.info.avgRating > 4.2;
     });
-    setRestCardList(filteredList);
+    setFilteredCardList(filteredList);
   };
 
   // Onchange event for search
@@ -71,7 +72,7 @@ const Body = () => {
       <div className="cards">
         {filteredRestCardList.map(function (restaurantcard) {
           return (
-            <Card key={restaurantcard?.info?.id} resdata={restaurantcard} />
+             <Link key={restaurantcard?.info?.id} to={"/restaurant/"+restaurantcard?.info?.id} ><Card  resdata={restaurantcard} /></Link> 
           );
         })}
       </div>

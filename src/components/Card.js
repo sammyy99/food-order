@@ -1,6 +1,6 @@
 import { CARD_LOGO_URL } from "../util/cdn";
 
-const Card = (props) => {
+const Card = (props) => { console.log(props)
   const { cloudinaryImageId, name, avgRatingString, cuisines, areaName } =
     props?.resdata?.info;
 
