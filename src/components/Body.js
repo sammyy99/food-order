@@ -1,11 +1,12 @@
 // mock data
-import restList from "../mockdata/restList";
+//import restList from "../mockdata/restList";
 import Card from "./Card";
 import { useState, useEffect } from "react";
 import Shimmer from "../util/Shimmer";
 import { Link } from "react-router-dom";
 
 const Body = () => {
+  
   const [restCardList, setRestCardList] = useState([]);
   const [filteredRestCardList, setFilteredCardList] = useState([]);
 
