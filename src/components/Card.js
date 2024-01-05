@@ -5,13 +5,15 @@ const Card = (props) => { console.log(props)
     props?.resdata?.info;
 
   return (
-    <div className="res-card">
-      <img className="card-logo" src={CARD_LOGO_URL + cloudinaryImageId}></img>
+    <div className="flex flex-col w-64 bg-white rounded-md overflow-hidden shadow-md mb-8 transition-transform transform hover:scale-105">
+      <img className="w-full h-32 object-cover" src={`${CARD_LOGO_URL}${cloudinaryImageId}`} alt={name} />
 
-      <h2>{name}</h2>
-      <h4>{avgRatingString}</h4>
-      <h4>{cuisines.join(", ")}</h4>
-      <h5>{areaName}</h5>
+      <div className="p-4">
+        <h2 className="text-xl font-semibold mb-2">{name}</h2>
+        <h4 className="text-gray-600 mb-2">{avgRatingString}</h4>
+        <div className="text-sm text-gray-500 mb-2">{cuisines.join(", ")}</div>
+        <div className="text-sm text-gray-500">{areaName}</div>
+      </div>
     </div>
   );
 };

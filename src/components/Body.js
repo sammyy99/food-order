@@ -6,7 +6,6 @@ import Shimmer from "../util/Shimmer";
 import { Link } from "react-router-dom";
 
 const Body = () => {
-  
   const [restCardList, setRestCardList] = useState([]);
   const [filteredRestCardList, setFilteredCardList] = useState([]);
 
@@ -25,10 +24,10 @@ const Body = () => {
     const json = await data.json();
 
     setRestCardList(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredCardList(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -48,32 +47,41 @@ const Body = () => {
   return restCardList.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="filterbtn">
-        <button onClick={handleButtonClick}>Our best Restaurants</button>
-
-        <input
-          type="text"
-          className="search-box"
-          value={searchText}
-          onChange={searching}
-        />
-        <button
-          onClick={() => {
-            const filteredList = restCardList.filter((elem) =>
-              elem.info.name.toLowerCase().includes(searchText.toLowerCase())
-            );
-            setFilteredCardList(filteredList);
-          }}
-        >
-          Search
-        </button>
+    <div className="body mt-10 px-20">
+      <div className="flex justify-around my-5">
+        <div className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full shadow-md">
+          <button onClick={handleButtonClick}>Our best Restaurants</button>
+        </div>
+        <div className="flex space-x-4">
+          <input
+            type="text"
+            className="bg-white focus:outline-none border border-gray-300 rounded-full py-2 px-4 leading-tight shadow-md"
+            value={searchText}
+            onChange={searching}
+          />
+          <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full shadow-md"
+            onClick={() => {
+              const filteredList = restCardList.filter((elem) =>
+                elem.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredCardList(filteredList);
+            }}
+          >
+            Search
+          </button>
+        </div>
       </div>
 
-      <div className="cards">
+      <div className="mt-16 cards flex flex-wrap justify-evenly">
         {filteredRestCardList.map(function (restaurantcard) {
           return (
-             <Link key={restaurantcard?.info?.id} to={"/restaurant/"+restaurantcard?.info?.id} ><Card  resdata={restaurantcard} /></Link> 
+            <Link
+              key={restaurantcard?.info?.id}
+              to={"/restaurant/" + restaurantcard?.info?.id}
+              className=""
+            >
+              <Card resdata={restaurantcard} />
+            </Link>
           );
         })}
       </div>
