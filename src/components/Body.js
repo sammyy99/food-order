@@ -1,6 +1,6 @@
 // mock data
 //import restList from "../mockdata/restList";
-import Card from "./Card";
+import Card ,{PromotionCard} from "./Card";
 import { useState, useEffect } from "react";
 import Shimmer from "../util/Shimmer";
 import { Link } from "react-router-dom";
@@ -11,7 +11,9 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState("");
 
-  console.log("Search render", searchText);
+  const PromotedCard = PromotionCard(Card);
+
+  console.log("Search render", restCardList);
 
   useEffect(() => {
     fetchData();
@@ -24,10 +26,10 @@ const Body = () => {
     const json = await data.json();
 
     setRestCardList(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredCardList(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -80,7 +82,8 @@ const Body = () => {
               to={"/restaurant/" + restaurantcard?.info?.id}
               className=""
             >
-              <Card resdata={restaurantcard} />
+              {restaurantcard.info.avgRating > 4.0 ? (<PromotedCard resdata={restaurantcard}/>) : (<Card resdata={restaurantcard} />)}
+              
             </Link>
           );
         })}

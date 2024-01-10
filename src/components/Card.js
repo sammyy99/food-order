@@ -1,12 +1,17 @@
 import { CARD_LOGO_URL } from "../util/cdn";
 
-const Card = (props) => { console.log(props)
+const Card = (props) => {
+  
   const { cloudinaryImageId, name, avgRatingString, cuisines, areaName } =
     props?.resdata?.info;
 
   return (
     <div className="flex flex-col w-64 bg-white rounded-md overflow-hidden shadow-md mb-8 transition-transform transform hover:scale-105">
-      <img className="w-full h-32 object-cover" src={`${CARD_LOGO_URL}${cloudinaryImageId}`} alt={name} />
+      <img
+        className="w-full h-32 object-cover"
+        src={`${CARD_LOGO_URL}${cloudinaryImageId}`}
+        alt={name}
+      />
 
       <div className="p-4">
         <h2 className="text-xl font-semibold mb-2">{name}</h2>
@@ -16,6 +21,17 @@ const Card = (props) => { console.log(props)
       </div>
     </div>
   );
+};
+
+export const PromotionCard = (Card) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute   bg-black text-orange-400 z-10 px-2 rounded-tr-lg rounded-br-lg">Our Best</label>
+        <Card {...props}/>
+      </div>
+    );
+  };
 };
 
 export default Card;
