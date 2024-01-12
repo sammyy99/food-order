@@ -9,7 +9,7 @@ const useMenuDataFetch = (resId)=>{
 const fetchMenu = async ()=>{
     const result = await fetch (Menu_API+resId)
     const json = await result.json()
-    console.log(json)
+    
     setResInfo(json.data)
 }
     return resInfo;
