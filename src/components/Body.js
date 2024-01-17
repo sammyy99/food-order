@@ -1,15 +1,18 @@
 // mock data
 //import restList from "../mockdata/restList";
 import Card ,{PromotionCard} from "./Card";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "../util/Shimmer";
 import { Link } from "react-router-dom";
+import UserContext from "../util/UserContext";
 
 const Body = () => {
   const [restCardList, setRestCardList] = useState([]);
   const [filteredRestCardList, setFilteredCardList] = useState([]);
 
   const [searchText, setSearchText] = useState("");
+
+  const {loggedInUser , setUserName} = useContext(UserContext)
 
   const PromotedCard = PromotionCard(Card);
 
@@ -46,6 +49,11 @@ const Body = () => {
     setSearchText(e.target.value);
   };
 
+  // OnChange event for userName
+  const userProfile = (e)=>{
+    setUserName(e.target.value)
+  }
+
   return restCardList.length === 0 ? (
     <Shimmer />
   ) : (
@@ -60,6 +68,12 @@ const Body = () => {
             className="bg-white focus:outline-none border border-gray-300 rounded-full py-2 px-4 leading-tight shadow-md"
             value={searchText}
             onChange={searching}
+          />
+          <input
+            type="text"
+            className="bg-white focus:outline-none border border-gray-300 rounded-full py-2 px-4 leading-tight shadow-md"
+            value={loggedInUser}
+            onChange={userProfile}
           />
           <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full shadow-md"
             onClick={() => {

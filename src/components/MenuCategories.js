@@ -1,14 +1,10 @@
 import { useState } from "react";
 import CategoryItems from "./CategoryItems";
 
-const MenuCategories = ({ data }) => {
-  //console.log(data);
+const MenuCategories = ({ data ,itemView ,setShowIndex}) => {
+  console.log(itemView);
 
-  const [itemView,setItemView] = useState(false)
-
-  const clickHandler = ()=>{
-    setItemView(!itemView);
-  }
+  const clickHandler = ()=>{setShowIndex()}
   
   return (
 
