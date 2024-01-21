@@ -8,7 +8,7 @@ const Cart = () => {
   });
   const dispatch = useDispatch();
   const removeAllItem = () => {
-    dispatch(clearItem(index));
+    dispatch(clearItem());
   };
   const itemRemove = (index)=>{
     dispatch(removeItem(index))
