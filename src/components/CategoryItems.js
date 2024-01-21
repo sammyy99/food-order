@@ -1,9 +1,16 @@
+import { useDispatch } from "react-redux";
 import { CARD_LOGO_URL } from "../util/cdn";
+import { addItem } from "../redux/cartSlice";
 
 const CategoryItems = ({ items }) => {
   console.log(items);
 
   const { itemCards } = items?.card?.card;
+
+  const dispatch = useDispatch();
+  const onAddHandle = (item)=>{
+    dispatch(addItem(item))
+  }
 
   return (
     <div>
@@ -29,7 +36,7 @@ const CategoryItems = ({ items }) => {
             
             <div className="w-2/12 p-4">
             <div className="absolute">
-              <button className="px-2 py-1 rounded-sm shadow-lg absolute text-sm bg-white bg-opacity-70">
+              <button className="px-2 py-1 rounded-sm shadow-lg absolute text-sm bg-white bg-opacity-70" onClick={()=>onAddHandle(item)}>
                 Add+
               </button>
             </div>

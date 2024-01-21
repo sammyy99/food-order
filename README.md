@@ -38,3 +38,5 @@
 
 # Used default and named exports 
 # Used parcel 
+# Redux 
+# Redux Tool Kit
